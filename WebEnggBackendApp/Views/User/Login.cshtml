@@ -1,0 +1,34 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title></title>
+</head>
+<body>
+    <div>
+        <form action="/User/Authenticate" method="POST">
+            <div>
+                <label>Username:</label>
+                <input type="text" placeholder="Enter username here" name="username" required />
+            </div>
+            <div>
+                <label>Password:</label>
+                <input type="password" placeholder="Enter password here" name="password" required />
+            </div>
+            <div>
+                <input type="submit" />
+            </div>
+        </form>
+
+        @if(TempData["errorMessage"] != null)
+        {
+            <p style="color: red;">@TempData["errorMessage"]</p>
+        }
+    </div>
+</body>
+</html>

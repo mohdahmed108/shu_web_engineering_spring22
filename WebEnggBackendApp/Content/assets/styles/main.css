@@ -1,0 +1,14 @@
+﻿div#header img {
+    height: 60px;
+    width: auto;
+}
+
+div#header ul {
+    list-style: none;
+    display: inline;
+}
+
+div#header ul li {
+    display: inline;
+    margin: 8px;
+}

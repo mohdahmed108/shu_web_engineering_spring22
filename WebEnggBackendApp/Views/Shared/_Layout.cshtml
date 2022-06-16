@@ -1,0 +1,28 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Sample eCommerce App</title>
+    <link rel="stylesheet" href="~/Content/assets/styles/main.css" />
+</head>
+<body>
+    <div id="header">
+        <img src="~/Content/assets/images/shu_logo.png" />
+        <ul>
+            <li><a href="/Home/Index">Home</a></li>
+            <li><a href="/Products">Products</a></li>
+            <li><a href="/User/Login">Login</a></li>
+            <li><a href="/User/Signup">Sign up</a></li>
+        </ul>
+    </div>
+
+    <div id="main-body">
+        @RenderBody()
+    </div>
+
+    <div id="footer">
+        Copyright 2022 SHU
+    </div>
+</body>
+</html>
