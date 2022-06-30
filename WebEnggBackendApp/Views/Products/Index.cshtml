@@ -3,3 +3,32 @@
 }
 
 <h1>Products List Page</h1>
+
+@if (ViewBag.Products != null && ViewBag.Products.Rows.Count > 0)
+{
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Price</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var product in ViewBag.Products.Rows)
+            {
+                <tr>
+                    <th>@product["ID"]</th>
+                    <th>@product["Name"]</th>
+                    <th>@product["Price"]</th>
+                </tr>
+            }
+
+        </tbody>
+    </table>
+}
+else
+{
+    <p>No products found.</p>
+}
+

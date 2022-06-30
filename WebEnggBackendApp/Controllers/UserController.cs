@@ -4,6 +4,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using WebEnggBackendApp.Models.RequestModels;
 
 namespace WebEnggBackendApp.Controllers
 {
@@ -20,24 +21,20 @@ namespace WebEnggBackendApp.Controllers
         }
 
         [HttpPost]
-        public ActionResult Authenticate(FormCollection formValues)
+        public ActionResult Authenticate(AuthenticateRequestModel model)
         {
             if (IsUserAuthenticated())
             {
                 return RedirectToAction("Index", "Orders");
             }
 
+            //if (model.username == null || model.password == null)
+            //{
+            //    TempData["errorMessage"] = "Username or password cannot be empty.";
+            //    return RedirectToAction("Login", "User");
+            //}
 
-            string username = formValues.Get("username");
-            string password = formValues.Get("password");
-
-            if (username == null || password == null)
-            {
-                TempData["errorMessage"] = "Username or password cannot be empty.";
-                return RedirectToAction("Login", "User");
-            }
-
-            if(!AuthenticateUser(username, password))
+            if(!AuthenticateUser(model.username, model.password))
             {
                 TempData["errorMessage"] = "Username or password is not correct.";
                 return RedirectToAction("Login", "User");
